@@ -232,6 +232,11 @@ public class Lab2P2_Andrés_Nuila {
                     }
                     break;
 
+                case 4:
+                    resp = 'n';
+                    break;
+                default:
+                    break;
             }
         }
     }
