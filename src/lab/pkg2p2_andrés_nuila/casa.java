@@ -14,30 +14,19 @@ public class casa {
     private String dueño;
     private String estado;
     private String ingeniero;
-    
+
     //contructor vacio
     public casa() {
 
     }
 
-    //casa sin dueño
-    public casa(int noCasa, int noBloque, String color, int ancho, int largo,int pisos,int baños,int cuartos, String estado, String ingeniero,String estadoCompra) {
-        this.noCasa = noCasa;
-        this.noBloque = noBloque;
-        this.estadoCompra=estadoCompra;
-        this.pisos=pisos;
-        this.color = color;
-        this.ancho = ancho;
-        this.largo = largo;
-        this.estado = estado;
-        this.ingeniero = ingeniero;
-    }
-
-    //casa con dueño
-    public casa(int noCasa, int noBloque, String color, int ancho, int largo,int pisos,int baños,int cuartos, String estado, String ingeniero,String estadoCompra, String dueño) {
+    public casa(int noCasa, int noBloque, String color, int ancho, int largo, int pisos, int baños, int cuartos, String estado, String ingeniero, String estadoCompra, String dueño) {
         this.noCasa = noCasa;
         this.noBloque = noBloque;
         this.color = color;
+        this.baños = baños;
+        this.cuartos = cuartos;
+        this.pisos = pisos;
         this.ancho = ancho;
         this.largo = largo;
         this.dueño = dueño;
@@ -109,11 +98,42 @@ public class casa {
         this.ingeniero = ingeniero;
     }
 
-    @Override
-    public String toString() {
-        return  "noCasa=" + noCasa + "noBloque=" + noBloque + "pisos=" + pisos + "baños=" + baños + "cuartos=" + cuartos + "estadoCompra=" + estadoCompra + "color=" + color + "ancho=" + ancho + "largo=" + largo + "dueño=" + dueño + "estado=" + estado + "-ingeniero=" + ingeniero;
+    public int getPisos() {
+        return pisos;
+    }
+
+    public void setPisos(int pisos) {
+        this.pisos = pisos;
+    }
+
+    public int getBaños() {
+        return baños;
+    }
+
+    public void setBaños(int baños) {
+        this.baños = baños;
+    }
+
+    public int getCuartos() {
+        return cuartos;
+    }
+
+    public void setCuartos(int cuartos) {
+        this.cuartos = cuartos;
+    }
+
+    public String getEstadoCompra() {
+        return estadoCompra;
+    }
+
+    public void setEstadoCompra(String estadoCompra) {
+        this.estadoCompra = estadoCompra;
     }
     
-    
+
+    @Override
+    public String toString() {
+        return "noCasa=" + noCasa + "  noBloque=" + noBloque + "  pisos=" + pisos + "  baños=" + baños + "  cuartos=" + cuartos + "  estadoCompra=" + estadoCompra + "  color=" + color + "  ancho=" + ancho + "  largo=" + largo + "  dueño=" + dueño + "  estado=" + estado + "  ingeniero=" + ingeniero;
+    }
 
 }

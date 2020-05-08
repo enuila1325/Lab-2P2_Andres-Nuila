@@ -52,22 +52,23 @@ public class Lab2P2_Andrés_Nuila {
                             if ("si".equals(compra) || "SI".equals(compra) || "Si".equals(compra)) {
                                 System.out.println("Ingrese el nombre del propietario");
                                 String dueño = leer.next();
-                                c = new casa(noCasa, noBloque, color, ancho, largo, pisos, baños, cuartos, estado, ing, dueño);
+                                c = new casa(noCasa, noBloque, color, ancho, largo, pisos, baños, cuartos, estado, ing, compra, dueño);
                             } else {
-                                String dueño ="N/A";
-                                c = new casa(noCasa, noBloque, color, ancho, largo, pisos, baños, cuartos, estado, ing, dueño);
+                                String dueño = "N/A";
+                                c = new casa(noCasa, noBloque, color, ancho, largo, pisos, baños, cuartos, estado, ing, compra, dueño);
                             }
                             System.out.println(c);
                             casas.add(c);
                             break;
                         case 2:
-                            if (casas.isEmpty()){
+                            if (casas.isEmpty()) {
                                 System.out.println("NO HAY REGISTROS A LISTAR");
-                            }else {
+                            } else {
                                 String cadena = "";
                                 for (int i = 0; i < casas.size(); i++) {
-                                    cadena +="->"+casas.get(i);
+                                    cadena += "->" + casas.get(i);
                                 }
+                                System.out.println(cadena);
                             }
 
                     }
