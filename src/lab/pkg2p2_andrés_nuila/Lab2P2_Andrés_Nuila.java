@@ -181,30 +181,6 @@ public class Lab2P2_Andrés_Nuila {
                         if (casas.isEmpty()) {
                             System.out.println("NO HAY REGISTROS A MODIFICAR SU ESTADO");
                         } else {
-                            String cadena = "";
-                            for (int i = 0; i < casas.size(); i++) {
-                                cadena += i + "->" + casas.get(i) + "\n";
-                            }
-                            System.out.println(cadena);
-                            System.out.println("Ingrese el indice de la casa a modificar su estado");
-                            int mod = leer.nextInt();
-                            System.out.println("Ingrese el estado de la casa en cuestion");
-                            String estado = leer.next();
-                            while (cConstruccion.size() > 5 || cDemoicion.size() > 3) {
-                                System.out.println("Ya no se puede adicionar mas casa en este estado. Intente uno nuevo");
-                                estado = leer.next();
-                                break;
-                            }
-                            while (!"LISTA".equals(estado) && !" EN CONSTRUCCION".equals(estado)
-                                    && !"CONSTRUCCION EN ESPERA".equals(estado) && !"ESPERA DE DEMOLICION".equals(estado)) {
-                                System.out.println("Entrada inválida, ingrese de nuevo");
-                                estado = leer.next();
-                            }
-                            if (cConstruccion.size() > 5 || cDemoicion.size() > 3) {
-                                System.out.println("Ya no se puede adicionar mas casa en este estado. Intente uno nuevo");
-                                estado = leer.next();
-                            }
-                            ((casa) casas.get(mod)).setEstado(estado);
                             for (int i = 0; i < casas.size(); i++) {
                                 String aux = ((casa) casas.get(i)).getEstado();
                                 if ("LISTA".equals(aux)) {
@@ -215,6 +191,68 @@ public class Lab2P2_Andrés_Nuila {
                                     cConsEspera.add(casas.get(i));
                                 } else if ("ESPERA DE DEMOLICION".equals(aux)) {
                                     cDemoicion.add(casas.get(i));
+                                }
+                            }
+                            String listas = "";
+                            System.out.println("LISTAS");
+                            for (int i = 0; i < casas.size(); i++) {
+                                listas += i + "->" + casas.get(i) + "\n";
+                            }
+                            System.out.println(listas);
+                            String construccion = "";
+                            System.out.println("EN CONSTRUCCION");
+                            for (int i = 0; i < casas.size(); i++) {
+                                construccion += i + "->" + casas.get(i) + "\n";
+                            }
+                            System.out.println(construccion);
+                            String espera = "";
+                            System.out.println("CONSTRUCCION EN ESPERA");
+                            for (int i = 0; i < casas.size(); i++) {
+                                espera += i + "->" + casas.get(i) + "\n";
+                            }
+                            System.out.println(espera);
+                            String demolicion = "";
+                            System.out.println("EN ESPERA DE DEMOLICION");
+                            for (int i = 0; i < casas.size(); i++) {
+                                demolicion += i + "->" + casas.get(i) + "\n";
+                            }
+                            System.out.println(demolicion);
+
+                            System.out.println("Ingrese el indice de la casa a modificar su estado");
+                            int mod = leer.nextInt();
+                            String estado = ((casa) casas.get(mod)).getEstado();
+                            if ("LISTA".equals(estado)) {
+                                System.out.println("Ingrese el nuevo estado de la casa en cuestion");
+                                String nuevoEstado = leer.next();
+                                while (!"ESPERA DE DEMOLICION".equals(estado)) {
+                                    System.out.println("Entrada inválida, ingrese de nuevo");
+                                    nuevoEstado = leer.next();
+                                }
+                                ((casa) casas.get(mod)).setEstado(nuevoEstado);
+                            } else if ("EN CONSTRUCCION".equals(estado)) {
+                                System.out.println("Ingrese el nuevo estado de la casa en cuestion");
+                                String nuevoestado = leer.next();
+                                while (!"LISTA".equals(estado) && !"CONSTRUCCION EN ESPERA".equals(estado)) {
+                                    System.out.println("Entrada inválida, ingrese de nuevo");
+                                    nuevoestado = leer.next();
+                                }
+                                ((casa) casas.get(mod)).setEstado(nuevoestado);
+                            } else if ("CONSTRUCCION EN ESPERA".equals(estado)) {
+                                System.out.println("Ingrese el nuevo estado de la casa en cuestion");
+                                String nuevoestado = leer.next();
+                                while (!" EN CONSTRUCCION".equals(estado)) {
+                                    System.out.println("Entrada inválida, ingrese de nuevo");
+                                    nuevoestado = leer.next();
+                                }
+                                ((casa) casas.get(mod)).setEstado(nuevoestado);
+                            } else if ("ESPERA DE DEMOLICION".equals(estado)) {
+                                System.out.println("No puede ser cambiado su estado \n desea demolerla?(S/N)");
+                                char demo = leer.next().charAt(0);
+                                if (demo == 'S' || demo == 's') {
+                                    casas.remove(mod);
+                                    System.out.println("YA EMPEZARON LOS TRABAJOS DE DEMOLICION. LA CASA SERA ALIMINADA DEL SISTEMA");
+                                } else {
+                                    break;
                                 }
                             }
                         }
