@@ -4,6 +4,10 @@ public class casa {
 
     private int noCasa;
     private int noBloque;
+    private int pisos;
+    private int baños;
+    private int cuartos;
+    private String estadoCompra;
     private String color;
     private int ancho;
     private int largo;
@@ -17,9 +21,11 @@ public class casa {
     }
 
     //casa sin dueño
-    public casa(int noCasa, int noBloque, String color, int ancho, int largo, String estado, String ingeniero) {
+    public casa(int noCasa, int noBloque, String color, int ancho, int largo,int pisos,int baños,int cuartos, String estado, String ingeniero,String estadoCompra) {
         this.noCasa = noCasa;
         this.noBloque = noBloque;
+        this.estadoCompra=estadoCompra;
+        this.pisos=pisos;
         this.color = color;
         this.ancho = ancho;
         this.largo = largo;
@@ -28,7 +34,7 @@ public class casa {
     }
 
     //casa con dueño
-    public casa(int noCasa, int noBloque, String color, int ancho, int largo, String dueño, String estado, String ingeniero) {
+    public casa(int noCasa, int noBloque, String color, int ancho, int largo,int pisos,int baños,int cuartos, String estado, String ingeniero,String estadoCompra, String dueño) {
         this.noCasa = noCasa;
         this.noBloque = noBloque;
         this.color = color;
@@ -102,5 +108,12 @@ public class casa {
     public void setIngeniero(String ingeniero) {
         this.ingeniero = ingeniero;
     }
+
+    @Override
+    public String toString() {
+        return  "noCasa=" + noCasa + "noBloque=" + noBloque + "pisos=" + pisos + "baños=" + baños + "cuartos=" + cuartos + "estadoCompra=" + estadoCompra + "color=" + color + "ancho=" + ancho + "largo=" + largo + "dueño=" + dueño + "estado=" + estado + "-ingeniero=" + ingeniero;
+    }
+    
+    
 
 }
